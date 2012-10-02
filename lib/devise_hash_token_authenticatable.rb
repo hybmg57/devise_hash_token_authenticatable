@@ -3,12 +3,13 @@ require 'devise'
 
 require 'devise_hash_token_authenticatable/exception'
 require 'devise_hash_token_authenticatable/logger'
-require 'devise_hash_token_authenticatable/schema'
-require 'devise_hash_token_authenticatable/routes'
 
 module Devise
-  mattr_accessor :hash_token_logger
-  @@hash_token_logger = true
+  mattr_accessor :hashtoken_id
+  @@hashtoken_id = :hash_id
+
+  mattr_accessor :hashtoken_key
+  @@hashtoken_key = :hash_key
 end
 
 # Add hash_token_authenticatable strategy to defaults.

@@ -1,11 +1,15 @@
 ENV["RAILS_ENV"] = "test"
 
-require File.expand_path("rails_app/config/environment.rb",  File.dirname(__FILE__))
+require File.expand_path('../rails_app/config/environment.rb',  __FILE__)
+require 'rspec'
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'factory_girl'
+require 'rails/test_help'
 
 Dir[File.expand_path("support/**/*.rb", File.dirname(__FILE__))].each {|f| require f}
+
+
+Rails.backtrace_cleaner.remove_silencers!
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -14,6 +18,6 @@ RSpec.configure do |config|
 end
 
 def default_devise_settings!
-  ::Devise.hash_id = :hash_id
-  ::Devise.hash_key = :hash_key
+  ::Devise.hashtoken_id = :hash_id
+  ::Devise.hashtoken_key = :hash_key
 end

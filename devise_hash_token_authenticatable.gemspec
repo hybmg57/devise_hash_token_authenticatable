@@ -21,20 +21,21 @@ Gem::Specification.new do |s|
 
 
 
-
-
-
-
-
-
-
-
-
-
-#:TODO list dependancies
+  s.add_dependency('devise', '~> 2.0')
 
   s.add_development_dependency('rake', '>= 0.9')
   s.add_development_dependency('rdoc', '>= 3')
   s.add_development_dependency('rails', '~> 3.2')
   s.add_development_dependency('sqlite3')
+  s.add_development_dependency('ruby-prof')
+  s.add_development_dependency('factory_girl_rails', '~> 1.0')
+  s.add_development_dependency('factory_girl', '~> 2.0')
+  s.add_development_dependency('shoulda', '~> 2.11')
+  s.add_development_dependency('rspec-rails')
+  s.add_development_dependency('mocha')
+  s.add_development_dependency('database_cleaner')
+  s.add_development_dependency('cucumber-rails')
+  s.add_development_dependency('cucumber')
+  s.add_development_dependency('capybara')
+  s.add_development_dependency('launchy')
 end

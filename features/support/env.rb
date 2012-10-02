@@ -1,17 +1,19 @@
 ENV["RAILS_ENV"] ||= "test"
-require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
-
-require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
-require 'cucumber/rails/world'
-require 'cucumber/rails/active_record'
+require File.expand_path("../../../spec/rails_app/config/environment.rb",  __FILE__)
+#require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
+require 'cucumber/rails'
+require 'bundler'
 
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
-require 'cucumber/rails/capybara_javascript_emulation'
+#require 'cucumber/rails/capybara_javascript_emulation'
+require 'devise_hash_token_authenticatable'
+require 'rspec/expectations'
+
 Capybara.default_selector = :css
 Capybara.save_and_open_page_path = File.join('/tmp')
-ActionController::Base.allow_rescue = false
+#ActionController::Base.allow_rescue = false
 Cucumber::Rails::World.use_transactional_fixtures = true
 if defined?(ActiveRecord::Base)
   begin
